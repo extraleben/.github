@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkextraleben_games=self.webpackChunkextraleben_games||[]).push([[6092],{2945:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-blog","id":"default"}')}}]);

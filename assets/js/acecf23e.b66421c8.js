@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkextraleben_games=self.webpackChunkextraleben_games||[]).push([[1903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/blog","blogTitle":"Blog"}')}}]);
