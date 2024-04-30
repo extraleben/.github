@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkextraleben_games=self.webpackChunkextraleben_games||[]).push([[3425],{6399:e=>{e.exports=JSON.parse('{"title":"Spiele","slug":"/category/spiele","permalink":"/category/spiele","navigation":{"previous":{"title":"\xdcber uns","permalink":"/aboutus"},"next":{"title":"Hogwarts Legacy","permalink":"/spiele/hogwarts-legacy/"}}}')}}]);
