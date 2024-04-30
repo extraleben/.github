@@ -35,6 +35,7 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
+          routeBasePath: '/',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -65,10 +66,14 @@ const config: Config = {
       },
       items: [
         // {
-        //   type: 'docSidebar',
-        //   sidebarId: 'tutorialSidebar',
-        //   position: 'left',
-        //   label: 'Tutorial',
+        //   to: '/aboutus',
+        //   label: 'Über uns',
+        //   position: 'left'
+        // },
+        // {
+        //   to: '/category/spiele',
+        //   label: 'Spiele',
+        //   position: 'left'
         // },
         {
           to: '/legal',
@@ -132,6 +137,34 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  customFields: {
+    gameData: {
+      genres: [
+        "Action-Adventure",
+        "Fantasy",
+        "Rollenspiel"
+      ],
+      platforms: [
+        "Epic",
+        "Switch",
+        "PC",
+        "PlayStation 4",
+        "PlayStation 5",
+        "Steam",
+        "Steam Deck",
+        "Xbox One",
+        "Xbox Series",
+      ],
+      usks: [
+        0,
+        6,
+        12,
+        16,
+        18
+      ]
+    }
+  }
 };
 
 export default config;
