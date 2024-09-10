@@ -57,7 +57,6 @@ export function Head(details: GameDetails) {
 
   outerLoop:
   for (let tag of tags) {
-    console.log(tag)
     for (let {id, regex, addValue} of regexes) {
       const r = regex.exec(tag);
 
@@ -69,8 +68,8 @@ export function Head(details: GameDetails) {
   }
 
   return <>
-    <aside style={{float: 'right'}}>
-      <table>
+    <aside style={{ float: 'right' }}>
+      <table style={{ marginLeft: '16px' }}>
         <thead>
           <tr>
             <th colSpan={2}>Schnellübersicht</th>
@@ -88,11 +87,11 @@ export function Head(details: GameDetails) {
             </tr>
           }
           <tr>
-            <td>Genres</td>
+            <td style={{ verticalAlign: 'top' }}>Genres</td>
             <td>{data.genres?.length ? <ul style={listStyle}>{data.genres.map(g => <li>{g}</li>)}</ul> : "Keine Genres"}</td>
           </tr>
           <tr>
-            <td>Plattformen</td>
+            <td style={{ verticalAlign: 'top' }}>Plattformen</td>
             <td>{data.platforms?.length ? <ul style={listStyle}>{data.platforms.map(g => <li>{g}</li>)}</ul> : "Keine Plattformen"}</td>
           </tr>
           {details.spieleratgeberId &&
