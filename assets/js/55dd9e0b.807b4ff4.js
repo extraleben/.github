@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkextraleben_games=self.webpackChunkextraleben_games||[]).push([[4885],{6864:e=>{e.exports=JSON.parse('{"label":"USK 12","permalink":"/tags/usk-12","allTagsPath":"/tags","count":1,"items":[{"id":"spiele/hogwarts-legacy/index","title":"Hogwarts Legacy","description":"<Head","permalink":"/spiele/hogwarts-legacy/"}],"unlisted":false}')}}]);
