@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkextraleben_games=self.webpackChunkextraleben_games||[]).push([[9596],{6727:e=>{e.exports=JSON.parse('{"label":"Extraleben: 4","permalink":"/tags/extraleben-4","allTagsPath":"/tags","count":1,"items":[{"id":"spiele/hogwarts-legacy/index","title":"Hogwarts Legacy","description":"<Head","permalink":"/spiele/hogwarts-legacy/"}],"unlisted":false}')}}]);
