@@ -1,3 +1,4 @@
+import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 
 interface GameDetails {
@@ -8,7 +9,7 @@ interface GameDetails {
 
 export function Head(details: GameDetails) {
   // @ts-ignore
-  const {siteConfig: { customFields: { gameData: { platforms, usks, genres } }, themeConfig: { navbar: { logo } } }} = useDocusaurusContext();
+  const { siteConfig: { customFields: { gameData: { platforms, usks, genres } }, themeConfig: { navbar: { logo } } } } = useDocusaurusContext();
 
   const listStyle: React.CSSProperties = {
     marginBottom: 0,
@@ -24,6 +25,10 @@ export function Head(details: GameDetails) {
     testplatform: null,
     platforms: [],
     extraleben: -1,
+    genai: false,
+    publisher: '',
+    developer: '',
+    year: -1,
   }
 
   const regexes = [{
@@ -56,13 +61,37 @@ export function Head(details: GameDetails) {
       return [...pv, d];
     }
   }, {
+    id: 'genai',
+    tag: 'GenAI',
+    addValue() {
+      return true;
+    }
+  }, {
+    id: 'publisher',
+    prefix: 'Publisher:',
+    addValue(d) {
+      return d;
+    }
+  }, {
+    id: 'developer',
+    prefix: 'Entwickler:',
+    addValue(d) {
+      return d;
+    }
+  }, {
+    id: 'year',
+    prefix: 'Erscheinungsjahr:',
+    addValue(d) {
+      return Number(d);
+    }
+  }, {
     id: 'testplatform',
     prefix: "Testplattform:",
     addValue(d, pv) {
       return d;
     },
     options: platforms
-  }].map(({ id, prefix, options, ...additional }) => ({ id, regex: new RegExp(`^${prefix} (${options.join('|')})$`), ...additional }))
+  }].map(({ id, prefix, tag, options, ...additional }) => ({ id, regex: (prefix && options) ? new RegExp(`^${prefix} (${options.join('|')})$`) : prefix ?  new RegExp(`^${prefix} (.+)`) : new RegExp(tag), ...additional }))
 
   outerLoop:
   for (let tag of tags) {
@@ -77,6 +106,7 @@ export function Head(details: GameDetails) {
   }
 
   return <>
+  {/* {JSON.stringify(data)} */}
     <aside style={{ float: 'right' }}>
       <table style={{ marginLeft: '16px' }}>
         <thead>
@@ -89,6 +119,24 @@ export function Head(details: GameDetails) {
             <td>USK</td>
             <td><a href={`https://usk.de/alle-lexikonbegriffe/usk-ab-${data.usk}-jahren/`} target="_blank">Freigegeben ab {data.usk} Jahren</a></td>
           </tr>
+          {data.publisher &&
+            <tr>
+              <td>Publisher</td>
+              <td>{data.publisher}</td>
+            </tr>
+          }
+          {data.developer &&
+            <tr>
+              <td>Entwickler/Studio</td>
+              <td>{data.developer}</td>
+            </tr>
+          }
+          {data.year > -1 &&
+            <tr>
+              <td>Erscheinungsjahr</td>
+              <td>{data.year}</td>
+            </tr>
+          }
           {data.extraleben > -1 &&
             <tr>
               <td>Extraleben</td>
@@ -114,6 +162,13 @@ export function Head(details: GameDetails) {
             <tr>
               <td colSpan={2}>
                 <a href={`https://www.gaming-ohne-grenzen.de/spiele/uebersicht/${details.gamingOhneGrenzenId}/`} target="_blank">Einschätzung zur Barrierefreiheit beim Projekt "Gaming ohne Grenzen"</a>
+              </td>
+            </tr>
+          }
+          {data.genai &&
+            <tr>
+              <td colSpan={2}>
+                <Link to={'/genai'}>Dieser Artikel wurde unter Zuhilfenahme von generativer KI erstellt.</Link>
               </td>
             </tr>
           }
