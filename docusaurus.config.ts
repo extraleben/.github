@@ -143,18 +143,26 @@ const config: Config = {
       genres: [
         "Action-Adventure",
         "Fantasy",
-        "Rollenspiel"
+        "Rollenspiel",
+        "Kampfspiel",
+        "Jump 'n' run",
+        "Rundenbasierter Kampf"
       ],
       platforms: [
-        "Epic",
+        "Gamecube",
         "Switch",
         "PC",
+        "PlayStation 1",
+        "PlayStation 2",
+        "PlayStation 3",
         "PlayStation 4",
         "PlayStation 5",
+        "Epic",
         "Steam",
         "Steam Deck",
         "Xbox One",
         "Xbox Series",
+        "Xbox"
       ],
       usks: [
         0,
