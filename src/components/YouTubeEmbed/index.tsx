@@ -1,3 +1,5 @@
+import Admonition from '@theme/Admonition';
+
 export function YouTubeEmbed({id, timeCode = 0}) {
   let url = `https://youtu.be/${id}`;
   if (timeCode) url += `?t=${timeCode}`;
@@ -8,4 +10,10 @@ export function YouTubeEmbed({id, timeCode = 0}) {
       <div>{url}</div>
     </a>
   </div>
+}
+
+export function YouTubeAdmonition({id, timeCode = 0, title = "Hier geht's zum Stream:"}) {
+  return <Admonition type="note" icon="" title={title}>
+    <YouTubeEmbed id={id} timeCode={timeCode} />
+  </Admonition>
 }
